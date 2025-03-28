@@ -1,2 +1,4 @@
 venv/
 stanford-rna-3d-folding/
+models/*.pth
+**.zip
