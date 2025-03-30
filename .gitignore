@@ -5,3 +5,8 @@ models/*.pth
 
 __pycache__
 submission.csv
+
+.ipynb_checkpoints
+
+trained_model_weights/*.pt
+trained_model_weights/RibonanzaNet-3D-final.pt
