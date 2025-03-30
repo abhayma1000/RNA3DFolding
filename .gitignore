@@ -2,3 +2,6 @@ venv/
 stanford-rna-3d-folding/
 models/*.pth
 **.zip
+
+__pycache__
+submission.csv

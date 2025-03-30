@@ -11,6 +11,7 @@ plotly
 
 torch
 transformers
+torchviz
 
 GPUtil
 
