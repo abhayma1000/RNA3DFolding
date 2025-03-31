@@ -4,7 +4,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 
-def plot_structure(x: np.array, y: np.array, z: np.array, sequences: np.array, name: str) -> None:
+def plot_structure(x: np.array, 
+                    y: np.array, 
+                    z: np.array, 
+                    sequences: np.array, 
+                    name: str,
+                    size=4,
+                    lines=True,
+                    linewidth=2) -> None:
     # Takes in the raw lists of x, y, z, and sequences and plots the 3D structure of the RNA
     # The sequences are colored by the nucleotide they represent
 
@@ -23,18 +30,19 @@ def plot_structure(x: np.array, y: np.array, z: np.array, sequences: np.array, n
             y=y[sequences == resname],
             z=z[sequences == resname],
             mode="markers",
-            marker=dict(size=4, color=color),
+            marker=dict(size=size, color=color),
             name=resname
         ))
     
-    fig.add_trace(go.Scatter3d(
-        x=x,
-        y=y,
-        z=z,
-        mode="lines",
-        line=dict(color="black", width=2),
-        name="RNA Backbone"
-    ))
+    if lines:
+        fig.add_trace(go.Scatter3d(
+            x=x,
+            y=y,
+            z=z,
+            mode="lines",
+            line=dict(color="black", width=linewidth),
+            name="RNA Backbone"
+        ))
 
     fig.update_layout(
         scene=dict(
@@ -47,7 +55,7 @@ def plot_structure(x: np.array, y: np.array, z: np.array, sequences: np.array, n
 
     fig.show()
 
-def plot_multiple_structures(structures: list[dict]) -> None:
+def plot_multiple_structures(structures: list[dict], size=4, lines=True, linewidth=2) -> None:
     """
     Takes a list of RNA structures and plots them in the same 3D plot.
     Each structure is represented as a dictionary with keys:
@@ -71,7 +79,7 @@ def plot_multiple_structures(structures: list[dict]) -> None:
                 y=y[sequences == resname],
                 z=z[sequences == resname],
                 mode="markers",
-                marker=dict(size=4, color=color),
+                marker=dict(size=size, color=color),
                 name=f"{name} - {resname}"
             ))
         
@@ -80,7 +88,7 @@ def plot_multiple_structures(structures: list[dict]) -> None:
             y=y,
             z=z,
             mode="lines",
-            line=dict(color="black", width=2),
+            line=dict(color="black", width=linewidth),
             name=f"{name} - Backbone"
         ))
 
