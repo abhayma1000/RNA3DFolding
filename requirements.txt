@@ -8,6 +8,7 @@ jupyter
 jupyterlab
 kaggle
 plotly
+notebook
 
 torch
 transformers
