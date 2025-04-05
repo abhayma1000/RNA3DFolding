@@ -10,3 +10,6 @@ submission.csv
 
 trained_model_weights/*.pt
 trained_model_weights/RibonanzaNet-3D-final.pt
+
+**.out
+**.err

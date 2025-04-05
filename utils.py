@@ -218,3 +218,8 @@ def calculate_tm_score_exact(pred_coords, true_coords):
                     best_tm_score = max(best_tm_score, tm_score)
     
     return float(best_tm_score)
+
+
+val_to_monomer = {i: nt for i, nt in enumerate("ACGU")}
+def vals_to_monomers(vals):
+    return [val_to_monomer[i] for i in vals.tolist()]

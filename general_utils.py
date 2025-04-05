@@ -39,7 +39,7 @@ def get_time_from_start(start_time):
     return f"{int(hours):02}:{int(minutes):02}:{seconds:05.2f}"
 
 def get_next_filename(path):
-    """Returns the next filename in the sequence"""
+    """Returns the next filename in the sequence and number"""
     num=0
     parts = path.split(".")
 
@@ -50,7 +50,7 @@ def get_next_filename(path):
         num += 1
         new_path = parts[0] + f"_{num}." + parts[1]
     
-    return new_path
+    return new_path, num
 
 # def download_out_files():
 #     # Download outputs of the jupyter notebook as a text file
