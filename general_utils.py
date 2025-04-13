@@ -74,9 +74,6 @@ def extract_outputs_to_json(notebook_path, output_file):
 # Example usage
 # extract_outputs_to_json("my_notebook.ipynb", get_next_filename("logs/output.json"))
 
-def save_notebook():
-    """Triggers a save action in Jupyter Notebook."""
-    display(Javascript('IPython.notebook.save_checkpoint();'))
 
 def transform_range(source_value, source_min, source_max, target_min, target_max):
     return (source_value - source_min) * (target_max - target_min) / (source_max - source_min) + target_min
@@ -101,4 +98,5 @@ def get_next_output_folder(outputs_folder_path):
 if __name__ == "__main__":
     print(get_next_filename("data/reviews.csv"))
     print(get_time_from_start(start_time))
-    send_email("Test subject", "This is a test email from Python.")
+    if os.environ.get('EMAIL_PASSWORD') is not None:
+        send_email("Test subject", "This is a test email from Python.")
